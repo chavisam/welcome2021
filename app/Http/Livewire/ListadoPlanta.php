@@ -31,7 +31,7 @@ class ListadoPlanta extends Component
     public function mount(){
              
              $this->reparaciones = Reparacione::query()
-            ->orderBy( column:'planta')
+            ->orderBy('planta')
             ->get();
        
       

@@ -63,7 +63,7 @@ class AddForm extends Component
         $this->addError('fecha_limite', 'Último día para reparar');
 
         //$this->reset($modif);
-        return $this->redirectRoute(name:'listado');
+        return $this->redirectRoute('listado');
     }
 
 

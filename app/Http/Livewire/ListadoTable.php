@@ -28,7 +28,7 @@ class ListadoTable extends Component
     public function mount(){
              
             $this->reparaciones = Reparacione::query()
-            ->orderByDesc( column:'id')
+            ->orderByDesc('id')
             ->get();    
       
     }

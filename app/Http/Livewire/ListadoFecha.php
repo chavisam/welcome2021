@@ -32,7 +32,7 @@ class ListadoFecha extends Component
     public function mount(){
              
             $this->reparaciones = Reparacione::query()
-            ->orderBy( column:'fecha_limite')
+            ->orderBy('fecha_limite')
             ->get();    
       
     }
