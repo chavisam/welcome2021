@@ -1,22 +1,33 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\AdminController;
+use App\Http\Livewire\CreateReparations;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Models\User;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/users', App\Http\Livewire\UsersTable::class)->name('users')->middleware('admin');
+Route::get('/listado', App\Http\Livewire\ListadoTable::class)->name('listado');
+Route::get('/create', App\Http\Livewire\CreateReparations::class)->name('create');
+Route::get('/editar/{modif}', App\Http\Livewire\EditarReparations::class)->name('editar');
+Route::get('/listado_planta', App\Http\Livewire\ListadoPlanta::class)->name('listado_planta');
+Route::get('/listado_fecha', App\Http\Livewire\ListadoFecha::class)->name('listado_fecha');
+
+Route::get('enviar',function(){
+    $data = [
+      'link' => 'https://jesuschicano.es'
+    ];
+    Mail::send('welcome', $data, function($msg){
+       $msg->from('jmanveljaca@gmail.com', 'Laravel');
+     $msg->to('chavi_sam@hotmail.com')->subject('Notificación');
+    });
+ }
+);

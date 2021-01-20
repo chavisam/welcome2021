@@ -15,12 +15,12 @@ class CreateTableReparaciones extends Migration
     {
         Schema::create('reparaciones', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id');
+            $table->string('user');
             $table->string('reparacion');
             $table->enum('urgencia',['Baja','Media','Alta']);
             $table->string('planta');
             $table->date('fecha_limite');
-            $table->text('estado');
+            $table->text('estado')->default('ESTROPEADO');
             $table->timestamps();
         });
     }
