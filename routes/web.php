@@ -21,13 +21,5 @@ Route::get('/editar/{modif}', App\Http\Livewire\EditarReparations::class)->name(
 Route::get('/listado_planta', App\Http\Livewire\ListadoPlanta::class)->name('listado_planta');
 Route::get('/listado_fecha', App\Http\Livewire\ListadoFecha::class)->name('listado_fecha');
 
-Route::get('enviar',function(){
-    $data = [
-      'link' => 'https://jesuschicano.es'
-    ];
-    Mail::send('welcome', $data, function($msg){
-       $msg->from('jmanveljaca@gmail.com', 'Laravel');
-     $msg->to('chavi_sam@hotmail.com')->subject('Notificación');
-    });
- }
+
 );
