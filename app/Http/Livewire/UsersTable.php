@@ -15,6 +15,7 @@ class UsersTable extends Component
     public function DeleteShowModal ($id){
         $this->modelId = $id;
         $this->modalConfirmDeleteVisible = true;
+       
     }
 
 

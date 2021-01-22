@@ -52,11 +52,35 @@
 
               
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <x-jet-button wire:click="DeleteShowModal({{ $user->id }})">
+              <x-jet-button wire:click="DeleteShowModal({{ $user->id }})" class="btn btn-danger">
                     {{ __('ELIMINAR USUARIO') }}
                 </x-jet-button>            
               </td>
-            </tr>       
+            </tr>   
+
+            <!-- Delete User Confirmation Modal -->
+  <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible" >
+            <x-slot name="title">
+                {{ __('Eliminar usuario') }}
+            </x-slot>
+
+            <x-slot name="content">
+                {{ __('¿Está seguro de que desea eliminar el usuario?  ') }}  
+                <br>
+               
+
+            </x-slot>
+
+            <x-slot name="footer">
+                <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
+                    {{ __('Cancelar') }}
+                </x-jet-secondary-button>
+
+                <x-jet-danger-button class="ml-2 btn-danger" wire:click="DeleteUser()" wire:loading.attr="disabled">
+                    {{ __('Eliminar Usuario') }}
+                </x-jet-danger-button>
+            </x-slot>
+        </x-jet-dialog-modal>    
 
       @endforeach
     
@@ -68,24 +92,4 @@
   </div>
 </div>
 
-  <!-- Delete User Confirmation Modal -->
-  <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
-            <x-slot name="title">
-                {{ __('Eliminar usuario') }}
-            </x-slot>
-
-            <x-slot name="content">
-                {{ __('Está seguro de que desea eliminar el usuario  ') }}  {{$user->name}}
-
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
-                    {{ __('Cancelar') }}
-                </x-jet-secondary-button>
-
-                <x-jet-danger-button class="ml-2" wire:click="DeleteUser()" wire:loading.attr="disabled">
-                    {{ __('Eliminar Usuario') }}
-                </x-jet-danger-button>
-            </x-slot>
-        </x-jet-dialog-modal>
+  
