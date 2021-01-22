@@ -102,7 +102,7 @@ window.addEventListener('openModal', event => {
                 <div>
                 <button wire:click="selectItem({{$reparacion->id}})" class="btn btn-danger w-100" >
                               Eliminar</button>
-                              <div wire:loading> Un segundito...</div>
+                            
                 </div>             
               
              

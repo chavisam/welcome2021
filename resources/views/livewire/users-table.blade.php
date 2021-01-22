@@ -1,6 +1,6 @@
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users') }} desde livewire
+            {{ __('Lista de Usuarios') }} 
         </h2>
     </x-slot>
     <div class="py-12">
@@ -52,12 +52,13 @@
 
               
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <a href="{{ route('profile.show') }}" style="color: white;"> Eliminar</a></button>
-              
+              <x-jet-button wire:click="DeleteShowModal({{ $user->id }})">
+                    {{ __('ELIMINAR USUARIO') }}
+                </x-jet-button>            
               </td>
-            </tr>
-@endforeach
+            </tr>       
+
+      @endforeach
     
             {{$users->links()}}
           </tbody>
@@ -67,9 +68,24 @@
   </div>
 </div>
 
+  <!-- Delete User Confirmation Modal -->
+  <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
+            <x-slot name="title">
+                {{ __('Eliminar usuario') }}
+            </x-slot>
 
+            <x-slot name="content">
+                {{ __('Está seguro de que desea eliminar el usuario  ') }}  {{$user->name}}
 
+            </x-slot>
 
-</div>
-        </div>
-    </div>
+            <x-slot name="footer">
+                <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
+                    {{ __('Cancelar') }}
+                </x-jet-secondary-button>
+
+                <x-jet-danger-button class="ml-2" wire:click="DeleteUser()" wire:loading.attr="disabled">
+                    {{ __('Eliminar Usuario') }}
+                </x-jet-danger-button>
+            </x-slot>
+        </x-jet-dialog-modal>

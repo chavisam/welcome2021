@@ -20,3 +20,4 @@ Route::get('/create', App\Http\Livewire\CreateReparations::class)->name('create'
 Route::get('/editar/{modif}', App\Http\Livewire\EditarReparations::class)->name('editar');
 Route::get('/listado_planta', App\Http\Livewire\ListadoPlanta::class)->name('listado_planta');
 Route::get('/listado_fecha', App\Http\Livewire\ListadoFecha::class)->name('listado_fecha');
+//Route::get('/editar_usuario/{usuario}', App\Http\Livewire\EditarUsuario::class)->name('editar_usuario');

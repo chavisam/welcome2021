@@ -91,9 +91,11 @@ window.addEventListener('openModal', event => {
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <button wire:click="estado({{$reparacion->id}})" class="w-full inline-flex justify-center py-2 mb-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
               ESTADO</button>
+              <br>
               <button class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm mb-2 text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
               <a href="{{ route('editar', ['modif' => $reparacion->id]) }}" style="color: white;">Editar </a></button>
               @if(Auth::user()->name == 'Eva')
+              <br>
               <button wire:click="selectItem({{$reparacion->id}})" class="btn btn-danger w-100" >
               Eliminar</button>
              
