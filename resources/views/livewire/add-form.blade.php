@@ -65,7 +65,7 @@
             </button>
 
             <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <a href="{{ route('listado') }}"> CANCELAR</a>
+            <a href="{{ route('listado') }}" style="color:white"> CANCELAR</a>
             </button>
           </div>
         </div>
