@@ -22,36 +22,34 @@ window.addEventListener('openModal', event => {
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Quién notifica
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Objeto a reparar
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              <a href="{{ route('listado_planta') }}" style="color: blue;">Planta</a>
+              <th scope="col" class="px-0 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <a href="{{ route('listado_planta') }}" style="color: blue;">Planta</a>
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Urgencia
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Estado
+              <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Estado <br> F.Modificado
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               <a href="{{ route('listado_fecha') }}" style="color: blue;">Fecha Límite</a>
               </th>
-              <th scope="col" class="relative px-6 py-3">
-                  
-               
+              <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+               Acción
               </th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
 
           @foreach($reparaciones as $reparacion)
-  
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap">
+              <td class="px-3 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                    <div class="ml-4">
                     <div class="text-sm font-medium text-gray-900">
@@ -64,20 +62,21 @@ window.addEventListener('openModal', event => {
                   </div>
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap">
+              <td class="px-3 py-4 whitespace-nowrap">
                 <div class="text-sm text-gray-900">{{$reparacion->reparacion }}</div>
                 <div class="text-sm text-gray-500"></div>
             
               </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-              {{$reparacion->planta }}
-             
+              <td class="px-0 py-4 whitespace-nowrap">
+              {{$reparacion->planta }}  
+    
+         
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">
               {{$reparacion->urgencia }}
               </td>
 
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">
               <?php if($reparacion->estado=="ESTROPEADO"){ ?>
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-white-800">
                         Pendiente <?php } else{ ?> 
@@ -88,21 +87,23 @@ window.addEventListener('openModal', event => {
                 </span>
               </td>
 
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">
               <?php echo date('d-m-Y', strtotime($reparacion->fecha_limite)) ?>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <td class=" mx-2 px-3 py-4 whitespace-nowrap text-right text-sm font-medium">
               <button wire:click="estado({{$reparacion->id}})" class="w-full inline-flex justify-center py-2 mb-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
               ESTADO</button>
-              <br>
-              <button class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm mb-2 text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+             <br>
+              <button class="w-full inline-flex justify-center py-2 px-2 border border-transparent shadow-sm mb-2 text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
               <a href="{{ route('editar', ['modif' => $reparacion->id]) }}" style="color: white;">Editar </a></button>
 
               @if(Auth::user()->name == 'Eva')
-              <br>
-              <button wire:click="selectItem({{$reparacion->id}})" class="btn btn-danger w-100" >
-              Eliminar</button>
-             
+                <div>
+                <button wire:click="selectItem({{$reparacion->id}})" class="btn btn-danger w-100" >
+                              Eliminar</button>
+                            
+                </div>             
+              
               @endif
               </td>
             </tr>
