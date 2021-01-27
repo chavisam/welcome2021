@@ -144,20 +144,20 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('listado') }}" :active="request()->routeIs('listado')">
                         {{ __('Reparaciones') }}
                     </x-jet-nav-link>
                 </div>
 
                 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('create') }}" :active="request()->routeIs('create')">
                         {{ __('Nueva Reparación') }}
                     </x-jet-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="https://api.whatsapp.com/send?phone=+34691329086&text=Tiene%20una%20nueva%20incidencia" target="_blank">
                         {{ __('Avisar por WhatssUp') }}
                     </x-jet-nav-link>

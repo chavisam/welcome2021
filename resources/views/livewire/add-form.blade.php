@@ -3,7 +3,7 @@
             {{ __('Crear Reparación') }} 
                     </h2>
 </x-slot>
-<div class="mt-10 sm:mt-0  flex justify-center w-1/2">
+<div class="mt-10 sm:mt-0  flex justify-center mt:w-9">
   <div class="container center">
     <div class="mt-5 md:mt-0">
 
@@ -11,7 +11,7 @@
       
         <div class="shadow overflow-hidden sm:rounded-md ">
 
-          <div class="px-4 py-5 bg-white sm:p-6">
+          <div class="px-4 py-5 bg-white sm:p-1">
 
       
               <div class="col-span-8 sm:col-span-3 mx-auto">
