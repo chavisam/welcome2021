@@ -27,8 +27,9 @@
                 <option  selected >Selecciona una opción...</option>
                   <option value="GARAJE">GARAJE</option>
                   <option value="BAJA">BAJA</option>
+                  <option value="PRIMERA">PRIMERA</option>
                   <option value="SEGUNDA">SEGUNDA</option>
-                  <option value="TERCERA">TERCERA</option>
+                 
                 </select>
                 @error('planta') <span class="text-red-700 error">{{ $message }}</span> @enderror
               </div>
