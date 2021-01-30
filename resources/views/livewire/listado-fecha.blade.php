@@ -62,9 +62,10 @@ window.addEventListener('openModal', event => {
                   </div>
                 </div>
               </td>
-              <td class="px-3 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">{{$reparacion->reparacion }}</div>
-                <div class="text-sm text-gray-500"></div>
+              <td class="px-5 overflow-clip py-4 ">
+                <span class=" text-primary badge-primary  text-2xl">{{ $reparacion->id }}</span> - {{$reparacion->reparacion }}
+                <br>
+                <div class="text-xs text-gray-600">Incidencia creada el día:  <?php echo date('d-m-Y', strtotime($reparacion->created_at)) ?></div>
             
               </td>
               <td class="px-0 py-4 whitespace-nowrap">
